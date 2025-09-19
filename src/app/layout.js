@@ -1,4 +1,5 @@
-import { EB_Garamond, Geist_Mono } from 'next/font/google'
+import { EB_Garamond, Geist_Mono, Sawarabi_Gothic } from 'next/font/google'
+import { cookies } from 'next/headers'
 import './globals.css'
 import Package from '../../package.json'
 
@@ -12,16 +13,23 @@ const geistMono = Geist_Mono({
   subsets: ['latin', 'cyrillic'],
 })
 
+const sawarabiGothic = Sawarabi_Gothic({
+  variable: '--font-sawarabi-gothic',
+  weight: ['400'],
+})
+
 export const metadata = {
   title: Package.name,
 }
 
 export default function RootLayout({ children }) {
+  const cookieStore = cookies()
+  const cookieLocale = cookieStore.get('locale')?.value
+  const lang = cookieLocale && ['ru', 'en', 'jp'].includes(cookieLocale) ? cookieLocale : 'en'
+
   return (
-    <html lang='ru'>
-      <body className={`${ebGaramond.variable} ${geistMono.variable} mx-auto container max-w-2xl py-30 antialiased bg-background text-foreground`}>
-        {children}
-      </body>
+    <html lang={lang}>
+      <body className={`${ebGaramond.variable} ${geistMono.variable} ${sawarabiGothic.variable} mx-auto container relative max-w-2xl pt-30 pb-[65vh] antialiased bg-background text-foreground`}>{children}</body>
     </html>
   )
 }

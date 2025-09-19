@@ -9,5 +9,28 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-book: var(--font-eb-garamond);
+  --font-jp: var(--font-sawarabi-gothic);
   --font-mono: var(--font-geist-mono);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 175ms ease-out both;
+}
+
+/* Hide scrollbars globally (WebKit, Firefox, IE/Edge legacy) */
+*::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
