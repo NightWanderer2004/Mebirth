@@ -2,6 +2,7 @@ import { EB_Garamond, Geist_Mono, Sawarabi_Gothic } from 'next/font/google'
 import { cookies } from 'next/headers'
 import './globals.css'
 import Package from '../../package.json'
+import { Analytics } from '@vercel/analytics/next'
 
 const ebGaramond = EB_Garamond({
   variable: '--font-eb-garamond',
@@ -29,7 +30,10 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang={lang}>
-      <body className={`${ebGaramond.variable} ${geistMono.variable} ${sawarabiGothic.variable} mx-auto container relative max-w-2xl pt-30 pb-[65vh] antialiased bg-background text-foreground`}>{children}</body>
+      <body className={`${ebGaramond.variable} ${geistMono.variable} ${sawarabiGothic.variable} mx-auto container relative max-w-2xl pt-30 pb-[65vh] antialiased bg-background text-foreground`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
