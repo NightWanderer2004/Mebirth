@@ -1,6 +1,6 @@
 ## Mebirth
 
-A tiny multilingual dialog reader built with Next.js App Router. It renders plain-text scripts split by blank lines, with a typewriter reveal and tap/click-to-advance. Localized via URL prefix (`/ru`, `/en`, `/jp`, etc.)
+A tiny multilingual prose visualizer. It renders plain-text scripts split by blank lines, with a typewriter reveal and tap/click-to-advance. Localized via URL prefix (`/ru`, `/en`, `/jp`, etc.)
 
 ## ![En View](./public/shots/en.png)
 
